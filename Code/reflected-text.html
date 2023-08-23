@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to reflect some text</title>
+<style> 
+.reflected {
+  position: relative;
+  display: inline-block;
+  width: max-content;
+  padding: 0 10px;
+  font-size: 72px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.reflected::after {
+  content: attr(data-text);  /* Copy content from data-text attribute */
+  display: block;
+  transform:
+    translateY(-10px)  /* Adjust this value to bring reflected text closer */
+    rotateX(180deg);
+  -webkit-mask-image:
+    linear-gradient(transparent 50%, white 90%);
+  opacity: 0.72;
+}
+</style>
+</head>
+
+
+
+  
+  <body>
+      <div class="reflected" data-text="Welcome To Whitewood Media"> Welcome To Whitewood Media </div>
+  </body>
+
+
+  
+
+</html>
