@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            margin: 0;
+            animation: changeBg 10s infinite alternate linear;
+            height: 100vh;
+        }
+
+        @keyframes changeBg {
+          0% { background: #ee6055; }          /* Reddish */
+          14% { background: #60d394; }         /* Green */
+          28% { background: #aaf683; }         /* Light Green */
+          42% { background: #ffd97d; }         /* Yellow */
+          57% { background: #ff9b85; }         /* Pinkish */
+          71% { background: #4A90E2; }         /* Blue */
+          85% { background: #8A44DB; }         /* Purple */
+          100% { background: #2C3E50; }        /* Dark Blue-ish Gray */
+        }
+
+        .black-section {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            clip-path: polygon(0 15%, 100% 30%, 100% 100%, 0% 100%);
+        }
+
+        
+        .product-card {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .product-card-details {
+            display: flex;
+            bottom: 0;
+            left: 0;
+            padding: 10px;
+            color: #181818;
+            z-index: 2;
+            margin-left: 24px;
+            font-size: 48px;
+            font-weight: bold;
+            font-family: 'Space Grotesk', sans-serif;
+            align-items: center;
+        }
+
+        .arrow-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #181818;
+            border-radius: 50%;
+            scale: calc(.8);
+            transform: rotate(-90deg);
+        }
+
+        .arrow-icon::before {
+            content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="white" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>');
+        }
+
+        .reflected {
+            position: relative;
+            display: inline-block;
+            width: max-content;
+            padding: 0 10px;
+            font-size: 72px;
+            font-weight: 700;
+            color: #FAFAFA;
+            line-height: 1;
+            font-family: 'Space Grotesk', sans-serif;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+
+        }
+
+        .reflected::after {
+            content: attr(data-text);
+            display: block;
+            transform: translateY(-10px) rotateX(180deg);
+            -webkit-mask-image: linear-gradient(transparent 50%, white 90%);
+            opacity: 0.72;
+            
+
+        }
+
+        .flex-container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            position: relative; 
+            z-index: 1;
+        }
+
+        .whitewood-container {
+            position: relative;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+
+    </style>
+</head>
+
+<body class="flex-container">
+    <div class="black-section"></div>
+
+    <div class="color-change">
+        
+        <div style="background-color: aqua;"> 
+            <div class="product-card">
+                <div class="product-card-details" style="align-items:right;"> 
+                    Shop all 
+                    <div class="arrow-icon"></div>
+                </div>
+            </div>
+        </div>
+        <div class="whitewood-container">
+            <div class="reflected" data-text="Welcome To Whitewood Media"> Welcome To Whitewood Media </div>
+        </div>
+    </div>
+</body>
+</html>
