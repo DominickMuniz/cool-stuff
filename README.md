@@ -14,7 +14,6 @@ This is a chunk of code with some breif CSS styling to easily make it so you can
 &nbsp;
 &nbsp;
 &nbsp;
-&nbsp;
 
 
 ## File 2: Background-animation.html
